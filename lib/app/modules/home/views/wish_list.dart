@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/common_text_form_field.dart';
@@ -156,8 +158,158 @@ class WishListView extends StatelessWidget {
             ],
           ),
           Container(height: ScreenConstant.defaultHeightTen,),
+          Container(
+              padding: EdgeInsets.symmetric(vertical: ScreenConstant.defaultHeightTwentyThree,horizontal: ScreenConstant.defaultWidthTen),
+            height: Get.height,
+            child: StaggeredGridView.countBuilder(
+              crossAxisCount: 2,
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) => index % 2 == 0
+                  ? _buildTallCard(index)
+                  : _buildShortCard(index),
+              staggeredTileBuilder: (int index) => index % 2 == 0
+                  ? StaggeredTile.fit(1)
+                  : StaggeredTile.fit(1),
+              mainAxisSpacing: 30.0,
+              crossAxisSpacing: 20.0,
+            )
+          )
         ],
       ),
     );
   }
+
+  Widget _buildTallCard(int index) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        height: ScreenConstant.screenHeightTowAndHalfPointFive,
+        width: ScreenConstant.defaultWidthOneSeventy,
+        decoration: BoxDecoration(color: CustomColor.primaryWhite),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                height:ScreenConstant.screenHeightFifth,
+                width: Get.width,
+                child: Image.network("https://media1.popsugar-assets.com/files/thumbor/b0rTsnJv_zrjHN12CqokFY4T_JQ=/0x0:1456x1456/fit-in/792x792/filters:format_auto():upscale()/2023/06/12/874/n/1922564/dbb82869648779136c7a15.00616962_.jpg",fit: BoxFit.cover,)),
+            Container(height: ScreenConstant.defaultHeightTen,),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text("Title",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 12),),
+            ),
+            Container(height: ScreenConstant.defaultHeightTen,),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Text("Subtitle",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 10,fontFamily: "Montserrat"),),
+            ),
+            Container(height: ScreenConstant.defaultHeightTen,),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Text("₹34,50",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 12,fontFamily: "MontserratMedium"),),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Row(
+                children: [
+                  Text("₹2,000",style: TextStyles.mediumText.copyWith(color: CustomColor.discountedPrice,fontSize: 12,fontFamily: "MontserratMedium",decoration: TextDecoration.lineThrough,decorationColor: CustomColor.discountedPrice),),
+                  Container(width: 5,),
+                  Text("20% Off",style: TextStyles.mediumText.copyWith(color: CustomColor.offColor,fontSize: 12,fontFamily: "MontserratMedium",decoration: TextDecoration.lineThrough,decorationColor: CustomColor.discountedPrice),),
+                ],
+              ),
+            ),
+            Container(height: ScreenConstant.defaultHeightTen-5,),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Row(
+                children: [
+                  RatingBarIndicator(
+                    rating: 2.5,
+                    itemCount: 5,
+                    itemSize: 15.0,
+                    unratedColor: CustomColor.discountedPrice,
+                    physics: BouncingScrollPhysics(),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                  ),
+                  Container(width: 10,),
+                  Text("23456",style: TextStyles.mediumText.copyWith(color: CustomColor.discountedPrice,fontSize: 10,fontFamily: "MontserratMedium"),),
+
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildShortCard(int index) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        width: ScreenConstant.defaultWidthOneSeventy,
+        decoration: BoxDecoration(color: CustomColor.primaryWhite),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                height:ScreenConstant.screenHeightSixth,
+                width: Get.width,
+                child: Image.network("https://media1.popsugar-assets.com/files/thumbor/b0rTsnJv_zrjHN12CqokFY4T_JQ=/0x0:1456x1456/fit-in/792x792/filters:format_auto():upscale()/2023/06/12/874/n/1922564/dbb82869648779136c7a15.00616962_.jpg",fit: BoxFit.cover,)),
+            Container(height: ScreenConstant.defaultHeightTen,),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text("Title",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 12),),
+            ),
+            Container(height: ScreenConstant.defaultHeightTen,),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Text("Subtitle",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 10,fontFamily: "Montserrat"),),
+            ),
+            Container(height: ScreenConstant.defaultHeightTen,),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Text("₹34,50",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 12,fontFamily: "MontserratMedium"),),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Row(
+                children: [
+                  Text("₹2,000",style: TextStyles.mediumText.copyWith(color: CustomColor.discountedPrice,fontSize: 12,fontFamily: "MontserratMedium",decoration: TextDecoration.lineThrough,decorationColor: CustomColor.discountedPrice),),
+                  Container(width: 5,),
+                  Text("20% Off",style: TextStyles.mediumText.copyWith(color: CustomColor.offColor,fontSize: 12,fontFamily: "MontserratMedium",decoration: TextDecoration.lineThrough,decorationColor: CustomColor.discountedPrice),),
+                ],
+              ),
+            ),
+            Container(height: ScreenConstant.defaultHeightTen-5,),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+              child: Row(
+                children: [
+                  RatingBarIndicator(
+                    rating: 2.5,
+                    itemCount: 5,
+                    itemSize: 15.0,
+                    unratedColor: CustomColor.discountedPrice,
+                    physics: BouncingScrollPhysics(),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                  ),
+                  Container(width: 10,),
+                  Text("23456",style: TextStyles.mediumText.copyWith(color: CustomColor.discountedPrice,fontSize: 10,fontFamily: "MontserratMedium"),),
+
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
+

@@ -16,7 +16,7 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
     super.onInit();
     motionTabBarController = MotionTabBarController(
       initialIndex: 0,
-      length: 4,
+      length: 5,
       vsync: this,
     );
   }
@@ -34,6 +34,15 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
 
   toggleAnimation() {
   }
+
+  RxBool isSmall = false.obs;
+  RxBool changeSize(int index){
+    if(index == 0){
+      isSmall.value = true;
+    }
+    return isSmall;
+  }
+
   final data = Rx<Map<String, dynamic>>({});
   MotionTabBarController? motionTabBarController;
   List<BeautyTypeModel> beautyTypeModel = [
