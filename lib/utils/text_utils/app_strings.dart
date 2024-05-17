@@ -12,7 +12,9 @@ class AppStrings{
   static const String gifts = "Gifts";
   static const String dealOfTheDay = "Deal of the Day";
   static const String hour = "22h 55m 20s remaining";
+  static const String lastDate = "Last Date 29/02/2022";
   static const String viewAll = "View all";
+  static const String items = "Items";
   static const String specialOffers = "Special Offers";
   static const String weMakeSure = "We make sure you get the offer \n you need at best prices";
 }

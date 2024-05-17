@@ -23,10 +23,6 @@ void main() async{
 
     )
   );
-  final FirebaseFirestore db = FirebaseFirestore.instance;
-  final CollectionReference users = db.collection("products");
-  final DocumentSnapshot snapshot = await users.doc('runtime').get();
-  final userfields = snapshot.data();
   runApp(GetMaterialApp(
     onReady: () async {
       // await Get.putAsync(() => FireBaseMessagingService().init());

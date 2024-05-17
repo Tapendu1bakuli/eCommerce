@@ -12,4 +12,6 @@ class CustomColor {
   static const Color bluishContainer = Color(0xFF4392F9);
   static const Color discountedPrice = Color(0xFFBBBBBB);
   static const Color offColor = Color(0xFFFE735C);
+  static const Color containerColor = Color(0xFFFD6E87);
+  static const Color bottomSelectedColor = Color(0xFFEB3030);
   }
