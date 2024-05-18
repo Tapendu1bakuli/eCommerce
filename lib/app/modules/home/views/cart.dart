@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/app/modules/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 import '../../../../device_manager/screen_constants.dart';
@@ -23,12 +24,13 @@ class CartView extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal: ScreenConstant.defaultWidthTen),
             child: Container(
+              padding: EdgeInsets.all(2),
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: CustomColor.primaryAppbarLeadingContainerColor),
-                height: ScreenConstant.screenHeightMinimum,
-                width: ScreenConstant.screenWidthMinimum,
-                child: Icon(Icons.shopping_cart_outlined)),
+                height: 40,
+                width: 40,
+                child: Icon(Icons.shopping_cart_outlined,size: 18,)),
           ),
         ],
       ),
@@ -97,12 +99,13 @@ class CartView extends StatelessWidget {
               style: TextStyles.semiBoldText.copyWith(color: CustomColor.black),
             ),
           ),
+          Container(height: ScreenConstant.defaultHeightTen,),
           Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: ScreenConstant.defaultWidthTen),
               child: Obx(
                 () => Container(
-                  height: ScreenConstant.defaultHeightFifty,
+                  height: ScreenConstant.defaultHeightForty,
                   child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       physics: NeverScrollableScrollPhysics(),
@@ -155,14 +158,49 @@ class CartView extends StatelessWidget {
           Container(height: ScreenConstant.defaultHeightTen,),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: Text("Nike Sneakers",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 12),),
+            child: Text("Nike Sneakers",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 20,fontFamily: "MontserratSemiBold"),),
           ),
           Container(height: ScreenConstant.defaultHeightTen,),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
-            child: Text("Vision Alta Men's Shoes Size (All Colours)",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 10,fontFamily: "Montserrat"),),
+            child: Text("Vision Alta Men's Shoes Size (All Colours)",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 14,fontFamily: "Montserrat"),),
           ),
           Container(height: ScreenConstant.defaultHeightTen,),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+            child: Row(
+              children: [
+                RatingBarIndicator(
+                  rating:4.5,
+                  itemCount: 5,
+                  itemSize: 18.0,
+                  unratedColor: CustomColor.discountedPrice,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, _) => Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                ),
+                Container(width: 10,),
+                Text("51,234",style: TextStyles.mediumText.copyWith(color: CustomColor.discountedPrice,fontSize: 14,fontFamily: "MontserratMedium"),),
+
+              ],
+            ),
+          ),
+          Container(height: ScreenConstant.defaultHeightTen,),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+            child: Row(
+              children: [
+                Text("₹2,999",style: TextStyles.mediumText.copyWith(color: CustomColor.discountedPrice,fontSize: 14,fontFamily: "MontserratMedium",decoration: TextDecoration.lineThrough,decorationColor: CustomColor.discountedPrice),),
+                Container(width: 5,),
+                Text("₹1,500",style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 14,fontFamily: "MontserratMedium"),),
+                Container(width: 5,),
+                Text("50% Off",style: TextStyles.mediumText.copyWith(color: CustomColor.offColor,fontSize: 14,fontFamily: "MontserratMedium",decoration: TextDecoration.lineThrough,decorationColor: CustomColor.discountedPrice),),
+
+              ],
+            ),
+          ),
         ],
       ),
     );
