@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/app/modules/home/controller/home_controller.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import '../../../../device_manager/screen_constants.dart';
 import '../../../../utils/TextStyles.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/image_utils/image_utils.dart';
+import '../../../../utils/text_utils/app_strings.dart';
 
 class CartView extends StatelessWidget {
   CartView({super.key});
@@ -112,23 +114,6 @@ class CartView extends StatelessWidget {
                       shrinkWrap: true,
                       itemCount: controller.drawerListModel.length,
                       itemBuilder: (BuildContext context, int index) {
-                        // return HomeDrawerListTileWidget(
-                        //     leadingImage: controller.drawerListModel[index].icon,
-                        //     titleText: controller.drawerListModel[index].title,
-                        //     titleTextStyles: TextStyles.drawerSubTitleBold,
-                        //     onTap: () {
-                        //       controller.drawerListModel.forEach(
-                        //               (element) => element.isColoured = false);
-                        //       debugPrint("index:$index");
-                        //       controller.drawerListModel[index].isColoured =
-                        //       !controller
-                        //           .drawerListModel[index].isColoured!;
-                        //       controller.drawerListModel.refresh();
-                        //       controller.drawerListModel[index].ontap!();
-                        //     },
-                        //     isColoured: controller.drawerListModel[index].isColoured,
-                        //     leadingImageHeight:
-                        //     ScreenConstant.defaultHeightTwentyThree);
                         return InkWell(
                           onTap: () {
                             controller.drawerListModel.forEach(
@@ -201,6 +186,43 @@ class CartView extends StatelessWidget {
               ],
             ),
           ),
+          Container(height: ScreenConstant.defaultHeightTen,),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+            child: Text(AppStrings.productDetails,style: TextStyles.mediumText.copyWith(color: CustomColor.black,fontSize: 14,fontFamily: "MontserratMedium"),),
+          ),
+          Obx(()=> Padding(padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
+                child: RichText(maxLines: controller.isShowmoreTrue.value?8:5,overflow: !controller.isShowmoreTrue.value?TextOverflow.ellipsis:TextOverflow.visible,
+              text: new TextSpan(
+                children: [
+                  !controller.isShowmoreTrue.value? TextSpan(
+                    text: 'Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time, becoming the most famous colorway of the Air Jordan 1. This 2015 release saw the',
+                    style: new TextStyle(color: Colors.black,),
+                  ):TextSpan(
+                    text: 'Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time, becoming the most famous colorway of the Air Jordan 1. This 2015 release saw thePerhaps the most iconic sneaker of all-time, thi',
+                    style: new TextStyle(color: Colors.black,),
+                  ),
+                  !controller.isShowmoreTrue.value? TextSpan(
+                    text: '..more',
+                    style: new TextStyle(color: Colors.blue),
+                    recognizer: new TapGestureRecognizer()
+                      ..onTap = () {
+                        print(controller.isShowmoreTrue.value);
+                      controller.isShowmoreTrue.value = true;
+                      },
+                  ):TextSpan(
+                    text: '..less',
+                    style: new TextStyle(color: Colors.blue),
+                    recognizer: new TapGestureRecognizer()
+                      ..onTap = () {
+                      print(controller.isShowmoreTrue.value);
+                        controller.isShowmoreTrue.value = false;
+                      },
+                  ),
+                ],
+              ),
+            ),),
+          )
         ],
       ),
     );

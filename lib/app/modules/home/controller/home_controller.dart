@@ -69,6 +69,7 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
     PriceModel(title: "9 UK",isColoured: false),
     PriceModel(title: "10 UK",isColoured: false),
   ].obs;
+  RxBool isShowmoreTrue = false.obs;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

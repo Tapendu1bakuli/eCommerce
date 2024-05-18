@@ -15,6 +15,7 @@ class AppStrings{
   static const String lastDate = "Last Date 29/02/2022";
   static const String viewAll = "View all";
   static const String items = "Items";
+  static const String productDetails = "Product Details";
   static const String specialOffers = "Special Offers";
   static const String weMakeSure = "We make sure you get the offer \n you need at best prices";
 }
