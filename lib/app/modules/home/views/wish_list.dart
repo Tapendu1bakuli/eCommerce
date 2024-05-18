@@ -93,7 +93,7 @@ class WishListView extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: CustomColor.primaryWhite,
                       borderRadius: BorderRadius.circular(6),
-                      boxShadow: <BoxShadow>[
+                      boxShadow: const <BoxShadow>[
                         BoxShadow(
                             color: CustomColor.shadowColor,
                             blurRadius: 5.0,
@@ -168,8 +168,8 @@ class WishListView extends StatelessWidget {
                   ? _buildTallCard(index)
                   : _buildShortCard(index),
               staggeredTileBuilder: (int index) => index % 2 == 0
-                  ? StaggeredTile.fit(1)
-                  : StaggeredTile.fit(1),
+                  ? const StaggeredTile.fit(1)
+                  : const StaggeredTile.fit(1),
               mainAxisSpacing: 30.0,
               crossAxisSpacing: 20.0,
             )
@@ -185,7 +185,7 @@ class WishListView extends StatelessWidget {
       child: Container(
         height: ScreenConstant.screenHeightTowAndHalfPointFive,
         width: ScreenConstant.defaultWidthOneSeventy,
-        decoration: BoxDecoration(color: CustomColor.primaryWhite),
+        decoration: const BoxDecoration(color: CustomColor.primaryWhite),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -228,8 +228,8 @@ class WishListView extends StatelessWidget {
                     itemCount: 5,
                     itemSize: 15.0,
                     unratedColor: CustomColor.discountedPrice,
-                    physics: BouncingScrollPhysics(),
-                    itemBuilder: (context, _) => Icon(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, _) => const Icon(
                       Icons.star,
                       color: Colors.amber,
                     ),
@@ -251,11 +251,11 @@ class WishListView extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Container(
         width: ScreenConstant.defaultWidthOneSeventy,
-        decoration: BoxDecoration(color: CustomColor.primaryWhite),
+        decoration: const BoxDecoration(color: CustomColor.primaryWhite),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
                 height:ScreenConstant.screenHeightSixth,
                 width: Get.width,
                 child: Image.network("https://media1.popsugar-assets.com/files/thumbor/b0rTsnJv_zrjHN12CqokFY4T_JQ=/0x0:1456x1456/fit-in/792x792/filters:format_auto():upscale()/2023/06/12/874/n/1922564/dbb82869648779136c7a15.00616962_.jpg",fit: BoxFit.cover,)),
@@ -294,8 +294,8 @@ class WishListView extends StatelessWidget {
                     itemCount: 5,
                     itemSize: 15.0,
                     unratedColor: CustomColor.discountedPrice,
-                    physics: BouncingScrollPhysics(),
-                    itemBuilder: (context, _) => Icon(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, _) => const Icon(
                       Icons.star,
                       color: Colors.amber,
                     ),

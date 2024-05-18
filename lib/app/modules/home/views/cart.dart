@@ -20,19 +20,19 @@ class CartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
+        leading: const Icon(Icons.arrow_back_ios),
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: ScreenConstant.defaultWidthTen),
             child: Container(
-              padding: EdgeInsets.all(2),
+              padding: const EdgeInsets.all(2),
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: CustomColor.primaryAppbarLeadingContainerColor),
                 height: 40,
                 width: 40,
-                child: Icon(Icons.shopping_cart_outlined,size: 18,)),
+                child: const Icon(Icons.shopping_cart_outlined,size: 18,)),
           ),
         ],
       ),
@@ -40,7 +40,6 @@ class CartView extends StatelessWidget {
         children: [
           Container(
             height: ScreenConstant.screenHeightThird,
-            decoration: BoxDecoration(),
             child: Stack(children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
@@ -106,7 +105,7 @@ class CartView extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: ScreenConstant.defaultWidthTen),
               child: Obx(
-                () => Container(
+                () => SizedBox(
                   height: ScreenConstant.defaultHeightForty,
                   child: ListView.separated(
                       scrollDirection: Axis.horizontal,
@@ -160,8 +159,8 @@ class CartView extends StatelessWidget {
                   itemCount: 5,
                   itemSize: 18.0,
                   unratedColor: CustomColor.discountedPrice,
-                  physics: BouncingScrollPhysics(),
-                  itemBuilder: (context, _) => Icon(
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
                   ),
@@ -193,27 +192,27 @@ class CartView extends StatelessWidget {
           ),
           Obx(()=> Padding(padding: EdgeInsets.symmetric(horizontal: ScreenConstant.defaultWidthTen),
                 child: RichText(maxLines: controller.isShowmoreTrue.value?8:5,overflow: !controller.isShowmoreTrue.value?TextOverflow.ellipsis:TextOverflow.visible,
-              text: new TextSpan(
+              text: TextSpan(
                 children: [
-                  !controller.isShowmoreTrue.value? TextSpan(
+                  !controller.isShowmoreTrue.value? const TextSpan(
                     text: 'Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time, becoming the most famous colorway of the Air Jordan 1. This 2015 release saw the',
-                    style: new TextStyle(color: Colors.black,),
-                  ):TextSpan(
+                    style: TextStyle(color: Colors.black,),
+                  ):const TextSpan(
                     text: 'Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time, becoming the most famous colorway of the Air Jordan 1. This 2015 release saw thePerhaps the most iconic sneaker of all-time, thi',
-                    style: new TextStyle(color: Colors.black,),
+                    style: TextStyle(color: Colors.black,),
                   ),
                   !controller.isShowmoreTrue.value? TextSpan(
                     text: '..more',
-                    style: new TextStyle(color: Colors.blue),
-                    recognizer: new TapGestureRecognizer()
+                    style: const TextStyle(color: Colors.blue),
+                    recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         print(controller.isShowmoreTrue.value);
                       controller.isShowmoreTrue.value = true;
                       },
                   ):TextSpan(
                     text: '..less',
-                    style: new TextStyle(color: Colors.blue),
-                    recognizer: new TapGestureRecognizer()
+                    style: const TextStyle(color: Colors.blue),
+                    recognizer: TapGestureRecognizer()
                       ..onTap = () {
                       print(controller.isShowmoreTrue.value);
                         controller.isShowmoreTrue.value = false;
@@ -228,16 +227,16 @@ class CartView extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: ScreenConstant.defaultWidthTen),
               child: Obx(
-                    () => Container(
+                    () => SizedBox(
                   height: ScreenConstant.defaultHeightForty,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: controller.chipsModel.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Chip(
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                       backgroundColor: CustomColor.primaryWhite,
                       shadowColor: Colors.black,
                       avatar: Image.asset( controller.chipsModel[index].icon??""),

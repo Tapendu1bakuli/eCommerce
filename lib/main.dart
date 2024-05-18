@@ -13,20 +13,15 @@ import 'languages/LocalizationService.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
       apiKey: 'AIzaSyDovBXdGz_1n2WaiDbYHjmw3duxvTAezdA',
       appId: '1:25914179488:android:c40a2b1776cd7c04bdaec5',
       messagingSenderId: '25914179488',
       projectId: 'ecommerce-3831a',
       storageBucket: 'ecommerce-3831a.appspot.com',
-      // androidClientId: '267506235313-7lr3m8tch201rrlkljjg7fehvabk42o0.apps.googleusercontent.com',
-
     )
   );
   runApp(GetMaterialApp(
-    onReady: () async {
-      // await Get.putAsync(() => FireBaseMessagingService().init());
-    },
     localizationsDelegates: const [
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate,

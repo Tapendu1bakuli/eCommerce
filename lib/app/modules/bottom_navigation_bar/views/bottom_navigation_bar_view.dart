@@ -47,10 +47,10 @@ class PersistenBottomNavBarDemo extends StatelessWidget {
     controller: _homeController.motionTabBarController,
     children: <Widget>[
     HomeScreen(),
-    WishListView(),
+    const WishListView(),
     CartView(),
-    SearchView(),
-      SettingsView()
+    const SearchView(),
+      const SettingsView()
     ],
     ),
     );
