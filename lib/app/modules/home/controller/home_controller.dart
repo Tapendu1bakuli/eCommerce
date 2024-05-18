@@ -6,6 +6,7 @@ import '../../../../utils/image_utils/image_utils.dart';
 import '../../../../utils/text_utils/app_strings.dart';
 import '../../../models/beauty_type_model.dart';
 import '../../../models/carousal_image_model.dart';
+import '../../../models/money_model_view.dart';
 
 
 class HomeController extends GetxController with GetSingleTickerProviderStateMixin{
@@ -61,7 +62,13 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
     CarousalImageModel(title: "Dance",subtitleLarge: "Party Night",subtitleMid: "Know More Details Here",image: ImageUtils.carousal1,ontap: (){}),
     CarousalImageModel(title: "Dance",subtitleLarge: "Party Night",subtitleMid: "Know More Details Here",image: ImageUtils.carousal1,ontap: (){}),
   ];
-
+  RxList<PriceModel> drawerListModel = [
+    PriceModel(title: "6 UK",isColoured: false),
+   PriceModel(title: "7 UK",isColoured: false),
+    PriceModel(title: "8 UK",isColoured: false),
+    PriceModel(title: "9 UK",isColoured: false),
+    PriceModel(title: "10 UK",isColoured: false),
+  ].obs;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

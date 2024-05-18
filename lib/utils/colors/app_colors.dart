@@ -14,4 +14,5 @@ class CustomColor {
   static const Color offColor = Color(0xFFFE735C);
   static const Color containerColor = Color(0xFFFD6E87);
   static const Color bottomSelectedColor = Color(0xFFEB3030);
+  static const Color bottomSelect = Color(0xFFFA7189);
   }
