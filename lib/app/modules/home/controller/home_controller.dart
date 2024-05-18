@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_controller.dart';
+import 'package:ecommerce/app/models/chips_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
@@ -68,6 +69,11 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
     PriceModel(title: "8 UK",isColoured: false),
     PriceModel(title: "9 UK",isColoured: false),
     PriceModel(title: "10 UK",isColoured: false),
+  ].obs;
+  RxList<ChipsModel> chipsModel = [
+    ChipsModel(title: "Nearest Store",icon: ImageUtils.store),
+    ChipsModel(title: "VIP",icon:ImageUtils.vip),
+    ChipsModel(title: "Return Policy",icon: ImageUtils.ret),
   ].obs;
   RxBool isShowmoreTrue = false.obs;
   @override

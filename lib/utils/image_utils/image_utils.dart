@@ -25,6 +25,11 @@ class ImageUtils{
    static const String mac ="assets/images/mac.png";
    static const String newArrival ="assets/images/newArrival.png";
    static const String sponsered ="assets/images/sponsered.png";
+   static const String vip ="assets/icons/vip.png";
+   static const String ret ="assets/icons/return.png";
+   static const String store ="assets/icons/location.png";
+   static const String buyNow ="assets/images/buyNow.png";
+   static const String goToCart ="assets/images/goToCart.png";
 }
 Future<Uint8List> getBytesFromAsset(String path, int width) async {
   ByteData data = await rootBundle.load(path);

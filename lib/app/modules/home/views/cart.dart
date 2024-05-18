@@ -222,7 +222,46 @@ class CartView extends StatelessWidget {
                 ],
               ),
             ),),
-          )
+          ),
+          Container(height: ScreenConstant.defaultHeightTen,),
+          Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: ScreenConstant.defaultWidthTen),
+              child: Obx(
+                    () => Container(
+                  height: ScreenConstant.defaultHeightForty,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: controller.chipsModel.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Chip(
+                          padding: EdgeInsets.all(5),
+                      backgroundColor: CustomColor.primaryWhite,
+                      shadowColor: Colors.black,
+                      avatar: Image.asset( controller.chipsModel[index].icon??""),
+                      label: Text(
+                        controller.chipsModel[index].title??"",
+                      style: TextStyle(fontSize: 10,color: CustomColor.black.withOpacity(0.5)),
+                      ));
+                    }, separatorBuilder: (BuildContext context, int index) { return Container(width: ScreenConstant.defaultWidthTen,); },),
+                ),
+              )),
+          Container(height: ScreenConstant.defaultHeightTen,),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: ScreenConstant.defaultWidthTen),
+            child: Row(
+              children: [
+                Image.asset(ImageUtils.goToCart,scale: 1.6,),
+                Container(width: ScreenConstant.defaultWidthTwenty,),
+                Image.asset(ImageUtils.buyNow,scale: 0.8,),
+              ],
+            ),
+          ),
+          Container(height: ScreenConstant.defaultHeightTen,),
+
         ],
       ),
     );
